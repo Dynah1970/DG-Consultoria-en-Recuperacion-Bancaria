@@ -1,14 +1,19 @@
 
-/* Ajustes generales */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    font-size: 18px; /* Tamaño uniforme para todo el texto */
-    background: #0d203b url('../img/fondoazulamarillo.svg') no-repeat center center fixed;
+    font-size: 18px;
+    background: linear-gradient(
+        to bottom,
+        #f5e9df 0%,   /* beige superior */
+        #7c004c 100%  /* vino oscuro inferior */
+    );
+    background-attachment: fixed;
     background-size: cover;
     color: #FFFFFF;
 }
+
 
 * {
     font-size: inherit; /* Fuerza que todos los elementos hereden el tamaño del body */
@@ -49,8 +54,7 @@ body {
 
 /* Hover sobre los enlaces */
 .nav-container .desktop-nav a:hover {
-    background-color: rgba(255, 187, 54, 0.3); /* Fondo naranja translúcido al pasar el cursor */
-    color: #FFFFFF; /* Mantiene el texto blanco */
+       color: #FFFFFF; /* Mantiene el texto blanco */
 }
 
 /* Header */
@@ -96,22 +100,32 @@ h1, h2 {
     text-decoration: none;
     padding: 10px 20px;
     font-size: 16px;
-    background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+   
 }
 
 .navegacion a:hover {
-    background-color: #FFBB36;
+    background: linear-gradient(to right, #d86ea3, #7c004c); /* Degradado magenta */
+    color: #FFFFFF; /* Mantiene el texto blanco */
+    transition: background 0.4s ease, color 0.3s ease; /* Transición suave */
 }
 
+/* -------------------------------------------------------------
+   🔹 Este bloque aplica un degradado magenta-vino al pasar
+   el cursor sobre las pestañas del menú de navegación.
+   Mantiene el texto blanco y genera un efecto visual coherente
+   con el diseño general del sitio.
+-------------------------------------------------------------- */
+
+/*
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, #ede2d8 85%, #051d40 100%);
-    color: #ffffff; /* Texto blanco */
+    color: #ffffff; 
 }
+*/
 
 .contenedor {
     max-width: 1200px;
@@ -135,7 +149,7 @@ h1 {
 }
 
 .resumen-propiedad {
-    background-color: #1c2e4a; /* Fondo más oscuro */
+    background: linear-gradient(to bottom, #d86ea3, #7c004c); /* Degradado magenta-vino */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -143,9 +157,16 @@ h1 {
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* -------------------------------------------------------------
+   🔹 Este bloque define el estilo del recuadro que resume
+   cada propiedad. El fondo degradado (magenta → vino) crea
+   una apariencia más elegante y coherente con el diseño
+   general del sitio.
+-------------------------------------------------------------- */
+
 .resumen-propiedad .precio {
     font-size: 2rem;
-    color: #FFD700; /* Amarillo para destacar */
+    color: black; /* Amarillo para destacar */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -177,7 +198,7 @@ h1 {
 
 .boton-azul-claro {
     display: inline-block;
-    background-color: #007BFF;
+    background-color: #c14882;
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -188,8 +209,18 @@ h1 {
 }
 
 .boton-azul-claro:hover {
-    background-color: #0056b3;
+    background: linear-gradient(to right, #d86ea3, #7c004c); /* Degradado magenta elegante */
+    color: #ffffff;
+    transition: background 0.4s ease; /* Transición suave */
 }
+
+/* -------------------------------------------------------------
+   🔹 Este bloque aplica un efecto degradado al pasar el cursor
+   sobre el botón principal. Los tonos magenta (#d86ea3 → #7c004c)
+   armonizan con el diseño del fondo y refuerzan el estilo visual
+   corporativo de la página.
+-------------------------------------------------------------- */
+
 
 /* Ajusta los párrafos */
 .resumen-propiedad p {
@@ -225,17 +256,19 @@ h1 {
         padding: 15px;
     }
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #0d203b; /* Fondo oscuro */
-        color: #ffffff; /* Texto blanco */
-        font-size: 18px;
-        line-height: 1.6;
-        letter-spacing: 0.5px;
-    }
-    
+   /*
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d203b;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+*/
+
     .contenedor {
         max-width: 1200px;
         margin: 20px auto;
@@ -267,7 +300,7 @@ h1 {
     
     .resumen-propiedad .precio {
         font-size: 2rem;
-        color: #FFD700; /* Amarillo para destacar */
+        color: black; /* negro para destacar */
         margin-bottom: 20px;
         text-align: center;
     }
@@ -370,9 +403,23 @@ h1 {
     left: -250px;
     width: 250px;
     height: 100%;
-    background-color: rgba(13, 32, 59, 0.95);
+    background: linear-gradient(to bottom,
+        #7c004c 0%,    /* vino elegante arriba */
+        #9b5476 60%,   /* vino medio */
+        #d0cfd0 100%   /* gris metálico claro abajo */
+    );
     z-index: 1000;
     transition: left 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    background: linear-gradient(to bottom,
+        #9b5476 0%,    /* vino medio arriba */
+        #d0cfd0 100%   /* gris metálico abajo */
+    );
+    color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.4s ease;
 }
 
 .mobile-menu.active {
@@ -446,10 +493,6 @@ footer .navegacion a {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-footer .navegacion a:hover {
-    background-color: rgba(255, 187, 54, 0.3);
-    color: #FFFFFF;
-}
 
 /* Responsive Video */
 .footer-content {
@@ -616,4 +659,70 @@ footer .navegacion a:hover {
 .navegacion-float:hover {
     background-color:#ede2d8; /* Azul más oscuro en hover */
     transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background: linear-gradient(
+        to bottom,
+        #f5e9df 0%,   /* beige superior */
+        #7c004c 100%  /* vino oscuro inferior */
+    );
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------
+   🔹 Este bloque define el diseño visual del fondo principal,
+   incluyendo el degradado beige → magenta y la imagen SVG.
+   Se aplica desde la parte superior hasta el footer de la página.
+-------------------------------------------------------------- */
+
+/* 🔸 Estilo del título principal */
+h1 {
+    color: black; /* Vino para destacar sobre el fondo claro */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* 🔸 Estilo del botón principal */
+.boton-azul-claro {
+    display: inline-block;
+    background: linear-gradient(to right, #d86ea3, #7c004c);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.boton-azul-claro:hover {
+    background: linear-gradient(to right, #7c004c, #d86ea3);
+}
+header .nav-container .desktop-nav a:hover {
+    background: linear-gradient(to bottom,
+        #7c004c 0%,    /* vino elegante arriba */
+        #9b5476 60%,   /* vino medio */
+        #d0cfd0 100%   /* gris metálico claro abajo */
+    ) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-2px) !important;
+    transition: all 0.4s ease !important;
+}
+footer .navegacion a:hover {
+    background: linear-gradient(to bottom,
+        #7c004c 0%,    /* vino elegante arriba */
+        #9b5476 60%,   /* vino medio */
+        #d0cfd0 100%   /* gris metálico claro abajo */
+    ) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-2px) !important;
+    transition: all 0.4s ease !important;
 }

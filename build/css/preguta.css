@@ -47,11 +47,6 @@ body {
     transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
-/* Hover sobre los enlaces */
-.nav-container .desktop-nav a:hover {
-    background-color: rgba(255, 187, 54, 0.3); /* Fondo naranja translúcido al pasar el cursor */
-    color: #FFFFFF; /* Mantiene el texto blanco */
-}
 
 /* Header */
 header {
@@ -103,7 +98,7 @@ h1, h2 {
 }
 
 .navegacion a:hover {
-    background-color: #FFBB36;
+    background-color: #7c004c;
 }
 
 
@@ -187,14 +182,14 @@ h1 {
     right: -15px;
     transform: scaleX(-1);
 }
-
+/*
 .contactanos {
     font-weight: bold;
     color: #ffffff;
     margin-top: 20px;
     font-size: 1.2rem;
     text-decoration: none;
-    background-color: #ffd700;
+    background-color: #7c004c;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
@@ -202,7 +197,7 @@ h1 {
 }
 
 .contactanos:hover {
-    background-color: #ffc107;
+    background-color: #7c004c;
 }
 
 /* Responsividad */
@@ -490,3 +485,63 @@ footer .navegacion a:hover {
     transform: scale(1.1); /* Aumenta ligeramente el tamaño */
 }
 
+/* 🎨 Fondo general y estilo base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Tamaño uniforme para todo el texto */
+    background:
+        linear-gradient(to bottom, #f5e9df 95%, #580939 100%), /* beige → magenta */
+        url('../img/fondomagentabeige.svg') no-repeat center center fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------
+   🔹 Este bloque define el diseño visual del fondo principal,
+   incluyendo el degradado beige → magenta y la imagen SVG.
+   Se aplica desde la parte superior hasta el footer de la página.
+-------------------------------------------------------------- */
+
+/* 🔸 Estilo del título principal */.nav-container .desktop-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #000000 0%, #4d4d4d 40%, #bfbfbf 100%);
+    border: none;
+    transition: all 0.4s ease;
+}
+
+.nav-container .desktop-nav a:hover {
+    background: linear-gradient(to bottom, 
+        #4d001f 0%,   /* vino oscuro arriba */
+        #a35d84 60%,  /* vino claro al centro */
+        #c0bfc0 100%  /* gris metálico suave abajo */
+    );
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+footer .navegacion a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #000000 0%, #4d4d4d 40%, #bfbfbf 100%);
+    transition: all 0.4s ease;
+}
+
+footer .navegacion a:hover {
+    background: linear-gradient(to bottom, 
+        #4d001f 0%,   /* vino oscuro arriba */
+        #a35d84 60%,  /* vino claro al centro */
+        #c0bfc0 100%  /* gris metálico suave abajo */
+    );
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}

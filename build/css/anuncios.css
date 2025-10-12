@@ -59,6 +59,20 @@ body {
     color: #FFFFFF; /* Mantiene el texto blanco */
 }
 
+/* 🌈 Hover con degradado vino → gris metálico */
+.nav-container .desktop-nav a:hover {
+    background: linear-gradient(to bottom, 
+        #4d001f 0%,   /* vino oscuro arriba */
+        #a35d84 60%,  /* vino medio rosado en el centro */
+        #c0bfc0 100%  /* gris metálico abajo */
+    );
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    transition: all 0.4s ease;
+}
+
+
 /* Header */
 header {
     position: relative;
@@ -107,9 +121,6 @@ h1, h2 {
     transition: background-color 0.3s ease;
 }
 
-.navegacion a:hover {
-    background-color: #FFBB36;
-}
 
 /* Efecto hover específico para la clase 'have-seguridad' */
 .have-seguridad img {
@@ -497,4 +508,15 @@ footer .navegacion a:hover {
 .navegacion-float:hover {
     background-color:#ede2d8; /* Azul más oscuro en hover */
     transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+header .nav-container .desktop-nav a:hover {
+    background: linear-gradient(to bottom,
+        #7c004c 0%,    /* vino elegante arriba */
+        #9b5476 60%,   /* vino medio */
+        #d0cfd0 100%   /* gris metálico claro abajo */
+    );
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    transition: all 0.4s ease;
 }
