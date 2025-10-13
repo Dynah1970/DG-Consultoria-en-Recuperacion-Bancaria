@@ -1,0 +1,73 @@
+/* 🎯 Corrección con prioridad alta — exclusiva para contacto.html */
+
+/* Contenedor principal */
+main.contenedor.seccion .video-contacto {
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  background-color: #f5e9df !important;
+}
+
+/* 🎥 Video flexible y visible en todas las pantallas */
+main.contenedor.seccion .video-contacto .video-fondo {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  display: block !important;
+  max-height: 420px !important;
+  margin: 0 auto !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 💬 Texto debajo del video, centrado y visible */
+main.contenedor.seccion .texto-contacto {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 95% !important;
+  max-width: 900px !important;
+  margin: 20px auto 30px !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  text-align: center !important;
+}
+
+main.contenedor.seccion .texto-contacto h2 {
+  font-size: clamp(1rem, 2.8vw, 1.3rem) !important;
+  color: #000 !important;
+  line-height: 1.5 !important;
+  margin: 8px 0 !important;
+  font-weight: 700 !important;
+}
+
+/* 📱 Ajuste tablet */
+@media (max-width: 768px) {
+  main.contenedor.seccion .video-contacto .video-fondo {
+    max-height: 280px !important;
+  }
+  main.contenedor.seccion .texto-contacto h2 {
+    font-size: 1rem !important;
+  }
+}
+
+/* 📱 Ajuste móvil */
+@media (max-width: 480px) {
+  main.contenedor.seccion .video-contacto .video-fondo {
+    max-height: 220px !important;
+  }
+  main.contenedor.seccion .texto-contacto {
+    margin: 10px auto !important;
+    padding: 10px !important;
+  }
+  main.contenedor.seccion .texto-contacto h2 {
+    font-size: 0.95rem !important;
+  }
+}
