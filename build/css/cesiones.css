@@ -467,3 +467,33 @@ footer .navegacion a:hover {
     transform: scale(1.1); /* Aumenta ligeramente el tamaño */
 }
 
+/* 🎨 Fondo general y estilo base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px; /* Tamaño uniforme para todo el texto */
+    background:
+        linear-gradient(to bottom, #f5e9df 95%, #580939 100%), /* beige → magenta */
+        url('../img/fondomagentabeige.svg') no-repeat center center fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------
+   🔹 Este bloque define el diseño visual del fondo principal,
+   incluyendo el degradado beige → magenta y la imagen SVG.
+   Se aplica desde la parte superior hasta el footer de la página.
+-------------------------------------------------------------- */
+/* 🔸 Estilo del título principal */
+h1 {
+    color: black; 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    font-size: 2.4rem; /* Aumentado desde el tamaño por defecto */
+    font-weight: 800;  /* Más grueso para resaltar */
+    letter-spacing: 0.5px; /* Separación sutil entre letras */
+    margin-bottom: 25px; /* Espacio debajo del título */
+    text-align: center; /* Centrado visualmente */
+}
+p {
+     color: black; }
