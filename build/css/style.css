@@ -1089,3 +1089,433 @@ blockquote {
     font-size: 1.05rem;
   }
 }
+/* 🔹 CONTENEDOR DE LAS TARJETAS */
+.contenedor-anuncios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1000px; /* 🔹 tamaño justo para dos arriba */
+  margin: 0 auto;
+}
+
+/* 🔹 TARJETAS */
+.anuncio {
+  flex: 0 1 calc(50% - 20px); /* 🔹 dos arriba */
+  max-width: 420px;
+  min-width: 320px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #fffaf6;
+  border: 1px solid #e2d7d2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.anuncio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Imagen panorámica */
+.anuncio picture img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+ 
+
+.contenedor-anuncios24 {
+  display: flex;
+  justify-content: center;  /* 🔹 Centra horizontalmente el grupo */
+  align-items: flex-start;
+  flex-wrap: nowrap;        /* 🔹 Mantiene las tarjetas en una sola fila */
+  gap: 30px;                /* 🔹 Espacio entre tarjetas */
+  width: 100%;
+  max-width: 1200px;        /* 🔹 Limita el ancho total para centrar visualmente */
+  margin: 0 auto;           /* 🔹 Centra el bloque completo */
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* 🔹 Cada tarjeta */
+.anuncio24 {
+  flex: 1 1 30%;            /* 🔹 3 tarjetas distribuidas proporcionalmente */
+  max-width: 350px;         /* 🔹 Evita que sean demasiado anchas */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncio24:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* 🔹 Ajuste interno */
+.anuncio24 picture img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.contenido-anuncio24 {
+  padding: 15px;
+  text-align: justify;
+}
+
+.contenido-anuncio24 h3 {
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Responsivo: solo cuando sea realmente necesario */
+@media (max-width: 900px) {
+  .contenedor-anuncios24 {
+    flex-wrap: wrap;        /* 🔹 Solo en pantallas pequeñas */
+  }
+
+  .anuncio24 {
+    flex: 1 1 90%;
+    max-width: 400px;
+  }
+}
+@media (max-width: 900px) {
+  .contenedor-anuncios24 {
+    flex-wrap: wrap;
+  }
+
+  .anuncio24 {
+    flex: 1 1 90%;
+    max-width: 400px;
+  }
+}
+/* 🔹 Contenedor centrado (ya funcional) */
+.contenedor-anuncios24 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;   /* 🔹 Hace que todas las tarjetas midan igual */
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* 🔹 Tarjetas uniformes */
+.anuncio24 {
+  flex: 1 1 30%;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔹 Hace que el botón quede abajo */
+  height: 100%; /* 🔹 Todas igualan altura */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncio24:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
+/* 🔹 Imagen fija y proporcional */
+.anuncio24 picture img {
+  width: 100%;
+  height: 200px;            /* 🔹 Altura fija, igual en todas */
+  object-fit: cover;        /* 🔹 Corta sin deformar */
+}
+
+/* 🔹 Contenido interno */
+.contenido-anuncio24 {
+  flex: 1;                  /* 🔹 Rellena todo el espacio restante */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: justify;
+}
+
+.contenido-anuncio24 h3 {
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* 🔹 Precio y botón */
+.precio {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.boton-propiedad {
+  display: block;
+  background-color: #7c004c;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+/* 🔹 Responsivo */
+@media (max-width: 900px) {
+  .contenedor-anuncios24 {
+    flex-wrap: wrap;
+  }
+  .anuncio24 {
+    flex: 1 1 90%;
+    max-width: 400px;
+  }
+}
+/* 🔹 Contenedor centrado horizontal */
+.contenedor-anuncios24 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap; /* 🔹 en una sola fila */
+  gap: 25px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  overflow-x: auto; /* 🔹 permite scroll si hay más */
+}
+
+/* 🔹 Tarjetas tipo Inmuebles24 */
+.anuncio24 {
+  flex: 0 0 30%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anuncio24:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Imagen fija y limpia */
+.anuncio24 picture img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido alineado y proporcionado */
+.contenido-anuncio24 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  text-align: left;
+}
+
+.contenido-anuncio24 h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.contenido-anuncio24 p {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Precio y botón */
+.precio {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #000;
+}
+
+.boton-propiedad {
+  display: inline-block;
+  background-color: #7c004c;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+/* 🔹 Responsive para pantallas pequeñas */
+@media (max-width: 900px) {
+  .contenedor-anuncios24 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .anuncio24 {
+    flex: 1 1 90%;
+    max-width: 400px;
+    height: auto;
+  }
+}
+/* 🔹 Contenedor perfectamente centrado y equilibrado */
+.contenedor-anuncios24 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap; /* 🔹 evita que se baje la última tarjeta */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* 🔹 Tarjetas igualadas */
+.anuncio24 {
+  flex: 1;
+  min-width: 0;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  min-height: 480px; /* 🔹 iguala visualmente todas */
+}
+
+.anuncio24:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* Imagen */
+.anuncio24 picture img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido flexible */
+.contenido-anuncio24 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.precio {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #000;
+  margin-top: auto;
+}
+
+.boton-propiedad {
+  background-color: #7c004c;
+  color: white;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-propiedad:hover {
+  background-color: #a20066;
+}
+
+/* Responsivo */
+@media (max-width: 1000px) {
+  .contenedor-anuncios24 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .anuncio24 {
+    flex: 1 1 90%;
+    max-width: 400px;
+    min-height: auto;
+  }
+}
+/* 🔹 Centrar botón dentro de las tarjetas */
+.boton-propiedad {
+  display: block;
+  background-color: #7c004c;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 15px auto 10px auto; /* 🔹 centrado horizontal */
+  transition: background-color 0.3s ease;
+  width: fit-content; /* 🔹 se ajusta al texto */
+}
+
+.boton-propiedad:hover {
+  background-color: #a20066;
+}
+/* 🔹 Estilo para las etiquetas de etapa o estado */
+.contenido-anuncio24 p b {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  color: #4a0042; /* tono vino similar al botón */
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* 🔹 Alineación del texto general (como los testimonios) */
+.contenido-anuncio24 p {
+  text-align: center; /* 🔹 centrado elegante */
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* 🔹 Título también centrado */
+.contenido-anuncio24 h3 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
