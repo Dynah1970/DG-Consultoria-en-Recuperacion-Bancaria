@@ -1519,3 +1519,25 @@ blockquote {
   color: #000;
   margin-bottom: 8px;
 }
+/* ===== Estilos para el campo de mensaje ===== */
+#mensaje {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  margin-bottom: 15px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* ===== Estilo para el label del mensaje ===== */
+label[for="mensaje"] {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
