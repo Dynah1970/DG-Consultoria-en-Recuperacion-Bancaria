@@ -764,11 +764,6 @@ footer .navegacion a:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* 🔹 Última imagen (mapa) ocupa toda la fila */
-.galeria-amado-nervo picture:last-child {
-  grid-column: 1 / span 2; /* se extiende en ambas columnas */
-  height: auto;
-}
 
 /* 📱 En móvil: 1 imagen por fila */
 @media (max-width: 768px) {
@@ -776,10 +771,11 @@ footer .navegacion a:hover {
     grid-template-columns: 1fr;
   }
 
-  .galeria-amado-nervo picture:last-child {
-    grid-column: 1;
-  }
 }
+.galeria-amado-nervo picture.ultimo {
+  grid-column: 1 / -1;
+}
+
 .iconos-caracteristicas {
   display: flex; /* Los pone en línea */
   justify-content: center; /* Centra horizontalmente */
@@ -800,4 +796,73 @@ footer .navegacion a:hover {
   display: block;
   margin: 0 auto 5px auto; /* Centra cada imagen */
   filter: brightness(100%); /* Mantiene colores claros si hay fondo oscuro */
+}
+
+/* instrucicon para escribr dentro del video */
+
+.footer-content {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.footer-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-video {
+    position: absolute;
+    top: 20px;             /* Casi arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    color: white;
+}
+
+.texto-video h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+}
+.texto-video div {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; /* Antes era 70-90% */
+    max-width: 100%; /* Para que ocupe todo el espacio del video */
+    margin: 0 auto;
+    padding: 0 40px; /* Empuja un poco hacia los bordes */
+}
+
+.texto-video a h2 {
+    color: #FF1493; /* Vino */
+    font-size: 2rem;
+    text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
+}
+
+.texto-video a h3 {
+    color: #FF1493; /* Rosa fuerte */
+    font-size: 2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+.texto-video div {
+    display: flex;
+    justify-content: center; /* centra el grupo */
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.texto-video a:first-child {
+    position: relative;
+    left: -280px; /* mueve CDMX más a la izquierda */
+}
+
+.texto-video a:last-child {
+    position: relative;
+    right: -280px; /* mueve Jalisco más a la derecha */
 }

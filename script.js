@@ -132,4 +132,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, 5000); // Tiempo límite para cargar video
 });
+// Espera a que todo el HTML se haya cargado completamente
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Selecciona todas las galerías que tengan la clase "galeria-amado-nervo"
+    document.querySelectorAll('.galeria-amado-nervo').forEach(galeria => {
+
+        // Dentro de cada galería, selecciona todos los elementos <picture>
+        const fotos = galeria.querySelectorAll('picture');
+
+        // Comprueba si la cantidad de imágenes es impar
+        if (fotos.length % 2 !== 0) {
+            
+            // Si es impar, agrega la clase 'ultimo' a la última imagen
+            // Esto permite que la última imagen ocupe toda la fila en el grid
+            fotos[fotos.length - 1].classList.add('ultimo');
+        }
+    });
+});
 
