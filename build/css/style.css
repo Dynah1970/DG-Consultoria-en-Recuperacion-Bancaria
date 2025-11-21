@@ -13,6 +13,21 @@ body {
     font-size: inherit; /* Fuerza que todos los elementos hereden el tamaño del body */
 }
 
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 3.5rem;
+    color: #7c004c;
+    text-align: center;
+}
+
+/* Hover opcional */
+h1:hover {
+    color: #9e0066;
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
+
+
 
 
 /* Contenedor general */
@@ -71,6 +86,24 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     transform: translateY(-2px);
 }
+main a.boton {
+    display: inline-block;
+    background-color: #4d001f;
+    color: #fff;
+    padding: 12px 26px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+    border: 2px solid #320015;
+    transition: 0.3s ease;
+}
+
+main a.boton:hover {
+    background-color: #70002e; /* un vino más claro para el hover */
+    transform: scale(1.05);
+}
+
 
 /* Header */
 header {
@@ -138,23 +171,42 @@ h1, h2 {
 
 /* Estilo para la imagen con efecto de movimiento */
 .imagen-preguntas {
-    width: 60%; /* Ajusta el tamaño al 60% del contenedor */
-    height: auto; /* Mantén la proporción de la imagen */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transiciones suaves */
-    object-fit: cover; /* Asegura que la imagen se ajusta bien sin distorsión */
+    max-width: 250px; /* limita el ancho máximo */
+    width: 100%;       /* se adapta a contenedor */
+    height: auto;      /* mantiene proporción */
+    display: block;
+    margin: 0 auto;    /* centra la imagen */
 }
 
-/* Efecto al pasar el cursor (para escritorio) */
+.imagen-preguntas {
+    max-width: 250px; /* un poquito más grande */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* sombra un poco más marcada */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efecto al pasar el cursor (escritorio) */
 .imagen-preguntas:hover {
-    transform: translateY(-10px) scale(1.1); /* Mueve hacia arriba y crece */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    transform: translateY(-6px) scale(1.08); /* más grande pero suave */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* sombra más destacada */
 }
 
-/* Efecto al tocar (dispositivos táctiles y móviles) */
+/* Efecto al tocar (móvil) */
 .imagen-preguntas:active,
 .imagen-preguntas.touch-active {
-    transform: translateY(-5px) scale(1.05); /* Leve movimiento hacia arriba */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra menos intensa */
+    transform: translateY(-4px) scale(1.05); /* movimiento más sutil */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto al tocar (móvil) */
+.imagen-preguntas:active,
+.imagen-preguntas.touch-active {
+    transform: translateY(-3px) scale(1.03); /* movimiento más suave */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Ajustes para dispositivos móviles */
@@ -178,11 +230,135 @@ h1, h2 {
     }
 }
 
+
+   
+
+/* aqu va la parte de  etapas: Litigio, Adjudicadas y con Posesión, disponibles en todo el país.*/
+
+/* MARQUESINA */
+/* =========================================================
+   🔥 MARQUESINAS UNIFICADAS (REMATE + PREGUNTAS)
+   ========================================================= */
+
+.marquesina-contenedor,
+.marquesina-remate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* 🔥 MISMA ANIMACIÓN PARA AMBAS */
+.marquesina-texto,
+.marquesina-remate span {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: bold;
+    padding-right: 60px; /* espacio entre repeticiones */
+    animation: marquesina-lineal 12s linear infinite;
+    position: relative;
+    color: #000;
+}
+
+/* 🔥 DUPLICA AUTOMÁTICAMENTE EL TEXTO SIN TOCAR EL HTML */
+.marquesina-texto::after,
+.marquesina-remate span::after {
+    content: attr(data-text);
+    padding-left: 60px; 
+}
+/* TEXTO CORTO — MÁS RÁPIDO */
+.marquesina-texto {
+    animation-duration: 8s !important;
+}
+
+/* REMATE — MÁS LENTO */
+.marquesina-remate span {
+    animation-duration: 12s !important;
+}
+.marquesina-texto,
+.marquesina-remate span {
+    font-size: 1.8rem !important; /* Ajusta el tamaño aquí */
+}
+
+/* 🔥 ANIMACIÓN SIN ESPACIOS VACÍOS */
+@keyframes marquesina-lineal {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================================
+   📱 RESPONSIVE TABLET
+   ========================================================= */
+@media (max-width: 768px) {
+
+    .marquesina-texto,
+    .marquesina-remate span {
+        font-size: 1rem;
+        animation-duration: 16s; /* un poco más lento en tablet */
+    }
+}
+
+/* =========================================================
+   📱 RESPONSIVE CELULAR
+   ========================================================= */
+@media (max-width: 480px) {
+
+    .marquesina-texto,
+    .marquesina-remate span {
+        font-size: 0.95rem;
+        animation-duration: 18s; /* aún más lento para leer bien */
+    }
+}
+
+/* =========================================================
+   🔥 BOTÓN LEER MÁS FIJO
+   ========================================================= */
+
+
+@media (max-width: 480px) {
+    .leer-mas-fijo {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .leer-mas-fijo {
+        padding: 9px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* CENTRAR TODOS LOS BOTONES .leer-mas-fijo */
+.leer-mas-fijo {
+    display: block !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 12px !important;
+
+    padding: 10px 16px !important;
+    background: #7c004c !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+
+    /* ELIMINA cualquier regla vieja que lo empuje */
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+}
 /* Anuncios */
+/* ======== CONTENEDOR DE INMUEBLES24 (GRID REAL) ======== */
+
 .contenedor-anuncios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 .contenedor-anuncios img {
@@ -278,69 +454,50 @@ h1, h2 {
         text-align: left; /* Ajuste opcional */
     }
 }                       
-/* Tarjetas con movimiento */
-.razones-invertir {
-    text-align: center;
-}
-.contenedor-razones {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste responsivo */
-    gap: 20px; /* Espaciado entre tarjetas */
-    justify-content: center;
-    align-items: stretch;
-}
-
-/* Estilo para cada tarjeta */
-.tarjeta {
-    background: #fff;
-    color: #333;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.tarjeta img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.tarjeta:hover {
-    transform: translateY(-10px) scale(1.1); /* Efecto de levitación y crecimiento */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
-}
-
-.contenido-tarjeta {
-    padding: 15px;
-    color: #333;
-}
-
-.contenido-tarjeta h3 {
-    font-size: 1.2rem;
+.flip-card-back .img-back {
+    max-height: 130px;
+    width: auto;
     margin-bottom: 10px;
-    font-weight: bold;
-    color: #0d203b; /* Azul oscuro */
 }
-
-.contenido-tarjeta p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: black;
-}
-
-/* Responsividad para pantallas pequeñas */
+/* Responsividad */
 @media (max-width: 768px) {
-    .contenedor-razones {
-        grid-template-columns: 1fr; /* Una columna en móviles */
-        gap: 15px;
+
+    .contenedor-anuncios {
+        flex-direction: column; 
+        gap: 20px;
     }
 
-    .tarjeta {
-        width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    /* 🔥 CENTRAR TODO EL TEXTO EN MÓVIL */
+    .contenido-anuncio {
+        text-align: center;
+    }
+
+    .contenido-anuncio h3,
+    .contenido-anuncio p,
+    .contenido-anuncio .precio,
+    .contenido-anuncio ul {
+        text-align: center;
+    }
+
+    /* Centrar iconos */
+    .iconos-caracteristicas {
+        justify-content: center;
     }
 }
+/* 🔥 Responsive del botón (para que NO se corte) */
+@media (max-width: 768px) {
+
+    .boton-amarillo-block {
+        display: block;
+        width: 100%;              /* Que abarque todo el ancho disponible */
+        max-width: 260px;         /* Evita que se estire demasiado */
+        margin: 20px auto 0;      /* Centrado y con espacio hacia arriba */
+        padding: 14px 20px;       /* Más área clickeable */
+        text-align: center;       /* Centra el texto dentro del botón */
+        white-space: normal;      /* Permite que el texto del botón salte de línea */
+    }
+}
+
 
 /* Footer */
 
@@ -424,71 +581,6 @@ h1, h2 {
     .navegacion a {
         width: 80%;
         text-align: center;
-    }
-}
-/* General Footer Styles */
-footer {
-    background-color: transparent;
-    text-align: center;
-    color: #FFFFFF;
-    position: relative;
-    
-   }
-
-footer .navegacion {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
-}
-
-footer .navegacion a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-   }
-
-footer .navegacion a:hover {
-    background-color: #7c004c(255, 187, 54, 0.3);
-    color: #FFFFFF;
-}
-
-/* Responsive Video */
-.footer-content {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    margin-bottom: -360px; /* Reduce el espacio bajo el video */
-    
-}
-
-.footer-content video {
-    width: 100%;
-    height: auto; /* Mantiene la proporción del video */
-    max-height: 50vh; /* Limita la altura del video al 80% de la altura de la ventana */
-    object-fit: cover;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    footer .navegacion {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center; /* Centra las pestañas de navegación */
-    }
-
-    footer .navegacion a {
-        font-size: 0.9rem;
-        padding: 8px 10px;
-    }
-
-    /* Ajusta el margen debajo del video para evitar solapamiento */
-    .footer-content {
-        margin-bottom: 0;
     }
 }
 
@@ -780,27 +872,27 @@ blockquote {
     margin-top: 8px; /* 🔹 AQUI TERMINA TESTIMONIOS */
 }
 
-/* 🔹 AQUI INICIA TARJETAS DE INDEX.HTML*/
+/* AQUI INICIA TARJETAS DE INDEX.HTML */
 
-/* 🎯 Contenedor de razones con disposición horizontal */
+/* Contenedor de razones con disposición horizontal */
 .contenedor-razones {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;     /* Centra horizontalmente */
-    align-items: stretch;        /* Todas las tarjetas tendrán la misma altura */
-    gap: 40px;                   /* Espacio entre tarjetas */
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
     margin-top: 40px;
 }
 
-/* 🎨 Tarjeta con proporciones similares a los testimoniales */
+/* Tarjeta con proporciones similares a los testimoniales */
 .contenedor-razones .tarjeta {
-    flex: 1 1 300px;             /* Tamaño adaptable con mínimo 300px */
-    max-width: 350px;            /* Máximo ancho por tarjeta */
-    background-color: #f5e9df;   /* Fondo beige uniforme */
+    flex: 1 1 300px;
+    max-width: 350px;
+    background-color: #f5e9df;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     display: flex;
-    flex-direction: column;      /* Acomoda verticalmente su contenido */
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
@@ -808,25 +900,24 @@ blockquote {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 🌈 Efecto hover con profundidad */
-/* 🖼️ Imágenes más grandes y centradas en las tarjetas de razones */
+/* Imágenes más grandes y centradas */
 .contenedor-razones .tarjeta img {
-    width: 200px;              /* tamaño aumentado */
+    width: 200px;
     height: 200px;
-    object-fit: contain;       /* mantiene proporciones */
-    border-radius: 25px;       /* bordes suaves */
+    object-fit: contain;
+    border-radius: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15); /* sombra ligera */
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ✨ efecto al pasar el mouse */
+/* Efecto hover */
 .contenedor-razones .tarjeta img:hover {
-    transform: scale(1.06);     /* sutil para no deformar el diseño */
+    transform: scale(1.06);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* 📄 Títulos y texto */
+/* Títulos y texto */
 .contenedor-razones .contenido-tarjeta h3 {
     font-size: 1.3rem;
     font-weight: bold;
@@ -841,7 +932,7 @@ blockquote {
     margin: 0 15px 10px 15px;
 }
 
-/* 📱 Vista móvil */
+/* Vista móvil */
 @media (max-width: 768px) {
     .contenedor-razones {
         flex-direction: column;
@@ -854,6 +945,49 @@ blockquote {
         max-width: 400px;
     }
 }
+.contenedor-razones .tarjeta .boton-razones {
+    display: inline-block;
+    background-color: #7c004c; /* color que quieres */
+    color: #ede2d8; /* beige claro del body */
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.contenedor-razones .tarjeta .boton-razones:hover {
+    background-color: #a20063; /* mismo color pero más claro para el hover */
+    transform: scale(1.04);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Active (presionado) */
+.contenedor-razones .tarjeta .boton-razones:active {
+    transform: scale(0.97);
+}
+.modelo-badge {
+    display: inline-block;
+    background-color: #EFE6F3;
+    color: #5A0A3A;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.desc {
+    font-size: 14px;
+    line-height: 1.35;
+    color: #555;
+    margin-top: 5px;
+}
+
+
 /* 🔹 Hace que los iconos de características se alineen horizontalmente */
 .iconos-caracteristicas {
     display: flex;              /* Los coloca en fila */
@@ -1134,392 +1268,7 @@ blockquote {
 }
  
 
-.contenedor-anuncios24 {
-  display: flex;
-  justify-content: center;  /* 🔹 Centra horizontalmente el grupo */
-  align-items: flex-start;
-  flex-wrap: nowrap;        /* 🔹 Mantiene las tarjetas en una sola fila */
-  gap: 30px;                /* 🔹 Espacio entre tarjetas */
-  width: 100%;
-  max-width: 1200px;        /* 🔹 Limita el ancho total para centrar visualmente */
-  margin: 0 auto;           /* 🔹 Centra el bloque completo */
-  padding: 20px 0;
-  box-sizing: border-box;
-}
 
-/* 🔹 Cada tarjeta */
-.anuncio24 {
-  flex: 1 1 30%;            /* 🔹 3 tarjetas distribuidas proporcionalmente */
-  max-width: 350px;         /* 🔹 Evita que sean demasiado anchas */
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.anuncio24:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-}
-
-/* 🔹 Ajuste interno */
-.anuncio24 picture img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-}
-
-.contenido-anuncio24 {
-  padding: 15px;
-  text-align: justify;
-}
-
-.contenido-anuncio24 h3 {
-  text-align: center;
-  font-size: 1rem;
-  color: #000;
-  margin-bottom: 10px;
-}
-
-/* 🔹 Responsivo: solo cuando sea realmente necesario */
-@media (max-width: 900px) {
-  .contenedor-anuncios24 {
-    flex-wrap: wrap;        /* 🔹 Solo en pantallas pequeñas */
-  }
-
-  .anuncio24 {
-    flex: 1 1 90%;
-    max-width: 400px;
-  }
-}
-@media (max-width: 900px) {
-  .contenedor-anuncios24 {
-    flex-wrap: wrap;
-  }
-
-  .anuncio24 {
-    flex: 1 1 90%;
-    max-width: 400px;
-  }
-}
-/* 🔹 Contenedor centrado (ya funcional) */
-.contenedor-anuncios24 {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;   /* 🔹 Hace que todas las tarjetas midan igual */
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0;
-  box-sizing: border-box;
-}
-
-/* 🔹 Tarjetas uniformes */
-.anuncio24 {
-  flex: 1 1 30%;
-  max-width: 320px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* 🔹 Hace que el botón quede abajo */
-  height: 100%; /* 🔹 Todas igualan altura */
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.anuncio24:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
-}
-
-/* 🔹 Imagen fija y proporcional */
-.anuncio24 picture img {
-  width: 100%;
-  height: 200px;            /* 🔹 Altura fija, igual en todas */
-  object-fit: cover;        /* 🔹 Corta sin deformar */
-}
-
-/* 🔹 Contenido interno */
-.contenido-anuncio24 {
-  flex: 1;                  /* 🔹 Rellena todo el espacio restante */
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: justify;
-}
-
-.contenido-anuncio24 h3 {
-  text-align: center;
-  font-size: 1rem;
-  color: #000;
-  margin-bottom: 8px;
-}
-
-/* 🔹 Precio y botón */
-.precio {
-  text-align: center;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.boton-propiedad {
-  display: block;
-  background-color: #7c004c;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  margin-top: 10px;
-}
-
-/* 🔹 Responsivo */
-@media (max-width: 900px) {
-  .contenedor-anuncios24 {
-    flex-wrap: wrap;
-  }
-  .anuncio24 {
-    flex: 1 1 90%;
-    max-width: 400px;
-  }
-}
-/* 🔹 Contenedor centrado horizontal */
-.contenedor-anuncios24 {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: nowrap; /* 🔹 en una sola fila */
-  gap: 25px;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 0;
-  box-sizing: border-box;
-  overflow-x: auto; /* 🔹 permite scroll si hay más */
-}
-
-/* 🔹 Tarjetas tipo Inmuebles24 */
-.anuncio24 {
-  flex: 0 0 30%;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 420px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.anuncio24:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Imagen fija y limpia */
-.anuncio24 picture img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Contenido alineado y proporcionado */
-.contenido-anuncio24 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  text-align: left;
-}
-
-.contenido-anuncio24 h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.contenido-anuncio24 p {
-  font-size: 0.9rem;
-  color: #333;
-  margin-bottom: 6px;
-}
-
-/* Precio y botón */
-.precio {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #000;
-}
-
-.boton-propiedad {
-  display: inline-block;
-  background-color: #7c004c;
-  color: white;
-  text-align: center;
-  padding: 8px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 12px;
-  font-size: 0.9rem;
-  align-self: flex-start;
-}
-
-/* 🔹 Responsive para pantallas pequeñas */
-@media (max-width: 900px) {
-  .contenedor-anuncios24 {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .anuncio24 {
-    flex: 1 1 90%;
-    max-width: 400px;
-    height: auto;
-  }
-}
-/* 🔹 Contenedor perfectamente centrado y equilibrado */
-.contenedor-anuncios24 {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: nowrap; /* 🔹 evita que se baje la última tarjeta */
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 0;
-  box-sizing: border-box;
-}
-
-/* 🔹 Tarjetas igualadas */
-.anuncio24 {
-  flex: 1;
-  min-width: 0;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto;
-  min-height: 480px; /* 🔹 iguala visualmente todas */
-}
-
-.anuncio24:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-}
-
-/* Imagen */
-.anuncio24 picture img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Contenido flexible */
-.contenido-anuncio24 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  flex-grow: 1;
-}
-
-.precio {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #000;
-  margin-top: auto;
-}
-
-.boton-propiedad {
-  background-color: #7c004c;
-  color: white;
-  text-align: center;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin-top: 12px;
-  transition: background-color 0.3s ease;
-}
-
-.boton-propiedad:hover {
-  background-color: #a20066;
-}
-
-/* Responsivo */
-@media (max-width: 1000px) {
-  .contenedor-anuncios24 {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .anuncio24 {
-    flex: 1 1 90%;
-    max-width: 400px;
-    min-height: auto;
-  }
-}
-/* 🔹 Centrar botón dentro de las tarjetas */
-.boton-propiedad {
-  display: block;
-  background-color: #7c004c;
-  color: white;
-  text-align: center;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin: 15px auto 10px auto; /* 🔹 centrado horizontal */
-  transition: background-color 0.3s ease;
-  width: fit-content; /* 🔹 se ajusta al texto */
-}
-
-.boton-propiedad:hover {
-  background-color: #a20066;
-}
-/* 🔹 Estilo para las etiquetas de etapa o estado */
-.contenido-anuncio24 p b {
-  display: block;
-  text-align: center;
-  font-weight: 700;
-  color: #4a0042; /* tono vino similar al botón */
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  letter-spacing: 0.3px;
-}
-
-/* 🔹 Alineación del texto general (como los testimonios) */
-.contenido-anuncio24 p {
-  text-align: center; /* 🔹 centrado elegante */
-  line-height: 1.5;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-/* 🔹 Título también centrado */
-.contenido-anuncio24 h3 {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 8px;
-}
 /* ===== Estilos para el campo de mensaje ===== */
 #mensaje {
   display: block;
@@ -1542,9 +1291,39 @@ label[for="mensaje"] {
   font-weight: 600;
   color: #333;
 }
+/* =============================
+   GENERAL FOOTER STYLES
+============================= */
+footer {
+    background-color: transparent;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+}
 
+footer .navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
 
+footer .navegacion a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
 
+footer .navegacion a:hover {
+    background-color: rgba(255, 187, 54, 0.3);
+}
+
+/* =============================
+   VIDEO RESPONSIVE
+============================= */
 .footer-content {
     position: relative;
     width: 100%;
@@ -1554,18 +1333,23 @@ label[for="mensaje"] {
 
 .footer-content video {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 50vh;
     object-fit: cover;
 }
 
+/* =============================
+   TEXTO SOBRE EL VIDEO
+============================= */
 .texto-video {
     position: absolute;
-    top: 20px;             /* Casi arriba */
-    left: 50%;
+    top: 20px;
+    left: 50% !important;
     transform: translateX(-50%);
     text-align: center;
     z-index: 3;
     color: white;
+    width: 100%;
 }
 
 .texto-video h1 {
@@ -1574,40 +1358,265 @@ label[for="mensaje"] {
     font-weight: 700;
     text-shadow: 0 0 8px rgba(0,0,0,0.7);
 }
+
 .texto-video div {
     display: flex;
-    justify-content: space-between; 
-    width: 100%; /* Antes era 70-90% */
-    max-width: 100%; /* Para que ocupe todo el espacio del video */
+    justify-content: center;
+    gap: 200px; /* SEPARACIÓN PC → JALISCO MÁS A LA DERECHA */
+    width: 100%;
     margin: 0 auto;
-    padding: 0 40px; /* Empuja un poco hacia los bordes */
 }
 
-.texto-video a h2 {
-    color: #FF1493; /* Vino */
-    font-size: 2rem;
-    text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
-}
-
+.texto-video a h2,
 .texto-video a h3 {
-    color: #FF1493; /* Rosa fuerte */
+    color: #FF1493;
     font-size: 2rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
-.texto-video div {
-    display: flex;
-    justify-content: center; /* centra el grupo */
+
+/* =============================
+   CELULAR (0–480px)
+============================= */
+@media (max-width: 480px) {
+
+    .footer-content {
+        margin-bottom: 0;
+    }
+
+    .texto-video {
+        top: -10px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .texto-video h1 {
+        font-size: 1.7rem !important;
+        line-height: 1.1;
+        margin-bottom: 12px !important;
+    }
+
+    .texto-video div {
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-top: 0 !important;
+    }
+
+    .texto-video a {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+    }
+
+    .texto-video h2,
+    .texto-video h3 {
+        font-size: 1.05rem !important;
+    }
+}
+
+/* =============================
+   TABLET (481–768px)
+============================= */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .texto-video {
+        top: 10px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .texto-video h1 {
+        font-size: 2rem !important;
+        line-height: 1.1;
+    }
+
+    .texto-video div {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 40px !important;
+    }
+
+    .texto-video a {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* =============================
+   COMPUTADORA (1025px+)
+============================= */
+@media (min-width: 1025px) {
+
+    .texto-video h1 {
+        text-align: center !important;
+        margin-left: 20px !important; /* Ajuste fino */
+    }
+
+    .texto-video div {
+        justify-content: center !important;
+        gap: 240px !important; /* ⭐ Ajusta aquí si quieres más o menos separación */
+    }
+}
+/* 🔥 Corregir color rosa del título en responsive */
+.texto-video h1 {
+    color: #FF1493 !important;   /* Rosa fuerte */
+}
+/* creo que esto no hace nada pero por si se requier aqui estara*/
+/* 
+.flip-card-back p {
+    max-height: 65px;        
+    overflow: hidden;        
+    text-overflow: ellipsis; 
+    padding: 0 10px;         
+    line-height: 1.3;        
+}
+*/
+
+/* Contenedor ES LA PARTE DE RAZONES DE INDEX */
+/* ================================
+   RAZONES (corregido sin conflictos)
+================================== */
+
+
+/* CODIGO PARA  ANUNCIOS INM24 */ 
+/* ========= CONTENEDOR GENERAL ========= */
+.inmuebles24 {
     width: 100%;
+    padding: 40px 0;
+}
+
+/* ========= CONTENEDOR FLEX SEGURO ========= */
+.contenedor-inmuebles24 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1100px;
     margin: 0 auto;
-    position: relative;
 }
 
-.texto-video a:first-child {
-    position: relative;
-    left: -280px; /* mueve CDMX más a la izquierda */
+/* ========= TARJETA (FLIP CARD) ========= */
+.flip-card {
+    background: transparent;
+    width: 300px;
+    height: 420px;
+    perspective: 1000px;
 }
 
-.texto-video a:last-child {
+.flip-card-inner {
     position: relative;
-    right: -280px; /* mueve Jalisco más a la derecha */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* CARA FRONTAL */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.flip-card-front .info {
+    padding: 15px;
+    text-align: center;
+}
+
+.precio {
+    font-size: 18px;
+    color: #8a0135;
+    font-weight: bold;
+}
+
+/* CARA TRASERA */
+.flip-card-back {
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 25px;
+}
+
+/* BOTÓN */
+.btn-ver {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #8a0135;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+    .flip-card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* ===== ESPACIADO REAL Y SEGURO ENTRE TARJETAS ===== */
+
+/* separa cada tarjeta en TODAS las resoluciones */
+.inmuebles24 .flip-card {
+    margin: 20px !important;      /* separa entre tarjetas 👈 */
+    padding: 10px 0 !important;   /* da aire vertical */
+}
+
+/* separa las tarjetas cuando giran (espacio invisible alrededor) */
+.inmuebles24 .flip-card-inner {
+    padding: 10px !important;     /* evita que toquen al rotar */
+}
+
+/* evita que el giro empuje o aplaste la tarjeta */
+.inmuebles24 .flip-card-front,
+.inmuebles24 .flip-card-back {
+    box-sizing: border-box;
+    padding: 15px !important;
+}
+@media (max-width: 768px) {
+    .contenedor-inmuebles24 {
+        place-items: center !important; /* <-- CENTRAR TODO */
+    }
+}
+.inmuebles24 .flip-card-back p {
+    max-height: 4.8em;   /* Altura aproximada para 4 líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+/* TEXTO DEL LADO TRASERO — RESPONSIVE, CENTRADO Y SIN SCROLL */
+.inmuebles24 .flip-card-back p {
+    max-height: none !important;      /* deja crecer el texto SIN deformar */
+    overflow: visible !important;     /* elimina scroll */
+    text-align: center !important;    /* centra el texto SIEMPRE */
+    line-height: 1.4;
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+/* RESPONSIVE – AJUSTA SOLO ESPACIADO, NO ALTURA DE TARJETA */
+@media (max-width: 768px) {
+    .inmuebles24 .flip-card-back p {
+        font-size: 0.95rem;           /* más compacto pero sin deformar */
+    }
+}
+
+@media (max-width: 480px) {
+    .inmuebles24 .flip-card-back p {
+        font-size: 0.90rem;           /* texto perfecto para celular */
+    }
 }

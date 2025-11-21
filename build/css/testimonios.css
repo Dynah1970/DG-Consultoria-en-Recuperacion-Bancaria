@@ -318,7 +318,6 @@ footer .navegacion a:hover {
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
-    margin-bottom: -360px; /* Reduce el espacio bajo el video */
 }
 
 .footer-content video {
@@ -476,7 +475,7 @@ footer .navegacion a:hover {
 }
 
 
-footer-content {
+.footer-content {
     position: relative;
     width: 100%;
     aspect-ratio: 16/9;

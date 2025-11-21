@@ -473,64 +473,6 @@ body {
         text-align: center;
     }
 }
-footer {
-    background-color: transparent;
-    text-align: center;
-    color: #FFFFFF;
-    position: relative;
-}
-
-footer .navegacion {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
-}
-
-footer .navegacion a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-
-/* Responsive Video */
-.footer-content {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    margin-bottom: -360px; /* Reduce el espacio bajo el video */
-}
-
-.footer-content video {
-    width: 100%;
-    height: auto; /* Mantiene la proporción del video */
-    max-height: 50vh; /* Limita la altura del video al 80% de la altura de la ventana */
-    object-fit: cover;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    footer .navegacion {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center; /* Centra las pestañas de navegación */
-    }
-
-    footer .navegacion a {
-        font-size: 0.9rem;
-        padding: 8px 10px;
-    }
-
-    /* Ajusta el margen debajo del video para evitar solapamiento */
-    .footer-content {
-        margin-bottom: 0;
-    }
-}
 
 /* Estilo del botón flotante de WhatsApp */
 .whatsapp-float {
@@ -798,8 +740,39 @@ footer .navegacion a:hover {
   filter: brightness(100%); /* Mantiene colores claros si hay fondo oscuro */
 }
 
-/* instrucicon para escribr dentro del video */
+/* =============================
+   GENERAL FOOTER STYLES
+============================= */
+footer {
+    background-color: transparent;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+}
 
+footer .navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+footer .navegacion a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+footer .navegacion a:hover {
+    background-color: rgba(255, 187, 54, 0.3);
+}
+
+/* =============================
+   VIDEO RESPONSIVE
+============================= */
 .footer-content {
     position: relative;
     width: 100%;
@@ -809,18 +782,23 @@ footer .navegacion a:hover {
 
 .footer-content video {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 50vh;
     object-fit: cover;
 }
 
+/* =============================
+   TEXTO SOBRE EL VIDEO
+============================= */
 .texto-video {
     position: absolute;
-    top: 20px;             /* Casi arriba */
-    left: 50%;
+    top: 20px;
+    left: 50% !important;
     transform: translateX(-50%);
     text-align: center;
     z-index: 3;
     color: white;
+    width: 100%;
 }
 
 .texto-video h1 {
@@ -829,40 +807,105 @@ footer .navegacion a:hover {
     font-weight: 700;
     text-shadow: 0 0 8px rgba(0,0,0,0.7);
 }
+
 .texto-video div {
     display: flex;
-    justify-content: space-between; 
-    width: 100%; /* Antes era 70-90% */
-    max-width: 100%; /* Para que ocupe todo el espacio del video */
+    justify-content: center;
+    gap: 200px; /* SEPARACIÓN PC → JALISCO MÁS A LA DERECHA */
+    width: 100%;
     margin: 0 auto;
-    padding: 0 40px; /* Empuja un poco hacia los bordes */
 }
 
-.texto-video a h2 {
-    color: #FF1493; /* Vino */
-    font-size: 2rem;
-    text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
-}
-
+.texto-video a h2,
 .texto-video a h3 {
-    color: #FF1493; /* Rosa fuerte */
+    color: #FF1493;
     font-size: 2rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
-.texto-video div {
-    display: flex;
-    justify-content: center; /* centra el grupo */
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
+
+/* =============================
+   CELULAR (0–480px)
+============================= */
+@media (max-width: 480px) {
+
+    .footer-content {
+        margin-bottom: 0;
+    }
+
+    .texto-video {
+        top: -10px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .texto-video h1 {
+        font-size: 1.7rem !important;
+        line-height: 1.1;
+        margin-bottom: 12px !important;
+    }
+
+    .texto-video div {
+        flex-direction: column !important;
+        gap: 15px !important;
+        margin-top: 0 !important;
+    }
+
+    .texto-video a {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+    }
+
+    .texto-video h2,
+    .texto-video h3 {
+        font-size: 1.05rem !important;
+    }
 }
 
-.texto-video a:first-child {
-    position: relative;
-    left: -280px; /* mueve CDMX más a la izquierda */
+/* =============================
+   TABLET (481–768px)
+============================= */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .texto-video {
+        top: 10px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .texto-video h1 {
+        font-size: 2rem !important;
+        line-height: 1.1;
+    }
+
+    .texto-video div {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 40px !important;
+    }
+
+    .texto-video a {
+        font-size: 1.2rem !important;
+    }
 }
 
-.texto-video a:last-child {
-    position: relative;
-    right: -280px; /* mueve Jalisco más a la derecha */
+/* =============================
+   COMPUTADORA (1025px+)
+============================= */
+@media (min-width: 1025px) {
+
+    .texto-video h1 {
+        text-align: center !important;
+        margin-left: 20px !important; /* Ajuste fino */
+    }
+
+    .texto-video div {
+        justify-content: center !important;
+        gap: 240px !important; /* ⭐ Ajusta aquí si quieres más o menos separación */
+    }
 }
+/* 🔥 Corregir color rosa del título en responsive */
+.texto-video h1 {
+    color: #FF1493 !important;   /* Rosa fuerte */
+}
+
+/*eso hay que ver si no duplica reglas del footer*/

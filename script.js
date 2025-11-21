@@ -151,3 +151,128 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+//aqui da  una duplicacion de texto en las marquesinas de index
+document.addEventListener("DOMContentLoaded", function() {
+
+    // PREGUNTAS
+    const pq = document.querySelector(".marquesina-texto");
+    if (pq) {
+        pq.setAttribute("data-text", pq.textContent.trim());
+    }
+
+    // REMATE
+    const rm = document.querySelector(".marquesina-remate span");
+    if (rm) {
+        rm.setAttribute("data-text", rm.textContent.trim());
+    }
+
+});
+//FLIPPING INMOBILIARIO ESTA ES LA SECCION
+// JS para animar al hacer scroll (IntersectionObserver)
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector(".flip-hero");
+  const cards = document.querySelectorAll(".esquema-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (hero) observer.observe(hero);
+  cards.forEach(card => observer.observe(card));
+});
+// JS para animar al hacer scroll (IntersectionObserver)
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector(".flip-hero");
+  const cards = document.querySelectorAll(".esquema-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (hero) observer.observe(hero);
+  cards.forEach(card => observer.observe(card));
+});
+ //MAIN DE FLIPPING INMBO
+ /* ------------------------------ */
+/* 2️⃣ INTERCAMBIO AUTOMÁTICO     */
+/* ------------------------------ */
+
+setTimeout(() => {
+  document.querySelector(".bienestar-texto").style.order = "2";
+  document.querySelector(".bienestar-img").style.order = "1";
+}, 1800);
+
+
+/* ------------------------------ */
+/* 3️⃣ PASOS 1 → 5 secuenciales   */
+/* ------------------------------ */
+/* ---------------------------------------------- */
+/* ---------------------------------------------- */
+/* PASOS MANUALES CON ← → SIN CAMBIO AUTOMÁTICO   */
+//* ---------------------------------------------- */
+/* PASOS 1 → 5                                    */
+/* ---------------------------------------------- */
+
+const pasos = [
+  { num: "1", titulo: "Buscamos propiedades", txt: "Buscamos propiedades en remate bancario adjudicadas." },
+  { num: "2", titulo: "Analizamos el valor real", txt: "Analizamos su valor real y margen de recuperación." },
+  { num: "3", titulo: "Invertimos con capital seguro", txt: "Invertimos con capital seguro y documentación legal." },
+  { num: "4", titulo: "Optimizamos la propiedad", txt: "Optimizamos la propiedad (flipping o reventa)." },
+  { num: "5", titulo: "Recuperas tu capital", txt: "Recuperas tu capital + utilidad generada." }
+];
+
+let index = 0;
+let autoInterval;
+
+/* Renderizar cada paso */
+function mostrarPaso() {
+  const cont = document.getElementById("paso");
+
+  cont.innerHTML = `
+    <div class="numero">${pasos[index].num}</div>
+    <div class="titulo">${pasos[index].titulo}</div>
+    <div class="texto">${pasos[index].txt}</div>
+  `;
+}
+
+/* Auto avance */
+function iniciarAuto() {
+  autoInterval = setInterval(() => {
+    index = (index + 1) % pasos.length;
+    mostrarPaso();
+  }, 2000);
+}
+
+/* Reiniciar el autoavance cuando el usuario toca flechas */
+function reiniciarAuto() {
+  clearInterval(autoInterval);
+  iniciarAuto();
+}
+
+/* Flecha derecha */
+document.getElementById("next").addEventListener("click", () => {
+  index = (index + 1) % pasos.length;
+  mostrarPaso();
+  reiniciarAuto();
+});
+
+/* Flecha izquierda */
+document.getElementById("prev").addEventListener("click", () => {
+  index = (index - 1 + pasos.length) % pasos.length;
+  mostrarPaso();
+  reiniciarAuto();
+});
+
+/* Mostrar el primer paso y arrancar autoavance */
+mostrarPaso();
+iniciarAuto();

@@ -481,7 +481,7 @@ footer .navegacion a:hover {
     transform: scale(1.1); /* Aumenta ligeramente el tamaño */
 }
 
-footer-content {
+.footer-content {
     position: relative;
     width: 100%;
     aspect-ratio: 16/9;
